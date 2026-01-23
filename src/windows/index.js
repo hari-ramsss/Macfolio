@@ -1,3 +1,4 @@
 import TerminalWindow from "#windows/Terminal.jsx"
-import Safari from "#windows/Safari.jsx";
-export {TerminalWindow,Safari};
+import SafariWindow from "#windows/Safari.jsx";
+import ResumeWindow from "#windows/Resume.jsx";
+export {TerminalWindow,SafariWindow,ResumeWindow};
