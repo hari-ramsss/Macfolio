@@ -170,7 +170,7 @@ body {
     }
 
     .techstack {
-      @apply text-sm font-roboto p-5;
+      @apply text-sm font-roboto p-5 pb-0 ;
 
       .label {
         @apply flex items-center ms-10 mt-7;
@@ -206,7 +206,79 @@ body {
         }
       }
     }
+
+    .terminal-interactive {
+      @apply bg-[#ffffff] text-[#000000] font-roboto text-sm p-4 cursor-text;
+      max-height: 180px;
+      display: flex;
+      flex-direction: column;
+
+      .terminal-output {
+        @apply flex-1 overflow-y-auto space-y-3;
+        max-height: 120px;
+
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background: #cfcfcf;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background: #676767;
+          border-radius: 3px;
+        }
+      }
+
+      .terminal-entry {
+        @apply space-y-1;
+      }
+
+      .terminal-command {
+        @apply text-black;
+      }
+
+      .terminal-result {
+        @apply text-gray-700;
+
+        p {
+          @apply leading-relaxed;
+        }
+      }
+
+      .prompt {
+        @apply text-[#0a0a0a] font-bold mr-2;
+      }
+
+      .terminal-input-line {
+        @apply flex items-center mt-3 pt-3 border-t border-gray-700;
+
+        input {
+          @apply bg-transparent border-none text-[#070707] outline-none flex-1 font-roboto;
+          caret-color: #1f1f1f;
+
+          &::placeholder {
+            @apply text-gray-600;
+          }
+        }
+      }
+
+      @keyframes blink {
+
+        0%,
+        50% {
+          opacity: 1;
+        }
+
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+    }
   }
+
 
   #contact {
     @apply max-w-2xl absolute top-60 left-5/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
