@@ -170,7 +170,7 @@ body {
     }
 
     .techstack {
-      @apply text-sm font-roboto p-5 pb-0 ;
+      @apply text-sm font-roboto p-5 pb-0;
 
       .label {
         @apply flex items-center ms-10 mt-7;
@@ -380,9 +380,16 @@ body {
 
   #finder {
     @apply absolute w-3xl left-40 top-20 shadow-2xl drop-shadow-2xl overflow-hidden rounded-xl;
+    height: 420px;
+
+    .finder-body {
+      @apply flex bg-white;
+      height: calc(100% - 44px);
+      /* subtract header height */
+    }
 
     .sidebar {
-      @apply w-48 bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3;
+      @apply w-48 flex-none bg-gray-50 border-r border-gray-200 flex flex-col p-5 space-y-3 overflow-y-auto;
 
       h3 {
         @apply text-xs font-medium text-gray-400 mb-1;
@@ -406,19 +413,85 @@ body {
     }
 
     .content {
-      @apply flex-1 p-8 bg-white max-w-2xl relative;
+      @apply flex-1 p-6 bg-white overflow-y-auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1.5rem;
+      align-content: start;
 
       li {
-        @apply absolute flex items-center flex-col gap-3;
+        @apply flex items-center flex-col gap-2 p-2 rounded-lg cursor-pointer transition-all hover:bg-gray-100;
 
         img {
-          @apply object-contain object-center size-16 relative group-hover:scale-105;
+          @apply object-contain object-center size-14;
         }
 
         p {
-          @apply text-sm text-center font-medium w-40;
+          @apply text-xs text-center font-medium leading-tight;
+          word-break: break-word;
+          max-width: 90px;
         }
       }
+
+      .loading-state {
+        @apply col-span-full flex items-center justify-center py-10;
+        grid-column: 1 / -1;
+      }
+
+      .error-state {
+        @apply col-span-full text-center py-10 text-red-500;
+        grid-column: 1 / -1;
+      }
+    }
+
+    .github-breadcrumb {
+      @apply flex items-center gap-0.5 text-xs text-gray-500 ml-2 flex-1 overflow-hidden;
+
+      .breadcrumb-back {
+        @apply cursor-pointer text-blue-500 hover:text-blue-700 font-medium flex-none;
+      }
+
+      .breadcrumb-item {
+        @apply cursor-pointer hover:text-blue-600 truncate;
+
+        &.active {
+          @apply text-gray-800 font-medium cursor-default;
+        }
+      }
+    }
+  }
+
+  #githubfile {
+    @apply w-2xl absolute top-28 right-20 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    height: 450px;
+
+    h2 {
+      @apply font-bold text-sm text-center w-full truncate;
+    }
+
+    .github-file-content {
+      @apply overflow-y-auto bg-gray-50;
+      height: calc(100% - 44px);
+
+      pre {
+        @apply p-4 m-0 text-xs leading-relaxed;
+        font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', Menlo, Consolas, monospace;
+        white-space: pre-wrap;
+        word-break: break-word;
+        tab-size: 2;
+      }
+
+      code {
+        @apply text-gray-800;
+      }
+    }
+
+    .github-file-loading {
+      @apply flex items-center justify-center py-20;
+    }
+
+    .github-file-error {
+      @apply flex items-center justify-center py-20 text-red-500 text-sm;
     }
   }
 

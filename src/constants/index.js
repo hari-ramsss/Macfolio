@@ -77,25 +77,25 @@ const dockApps = [
 const blogPosts = [
   {
     id: 1,
-    date: "Sep 2, 2025",
+    status: "complete(live)",
     title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
+      "A decentralized marketplace for buying and selling vouchers, coupons, and gift cards with zero fraud using AI-powered validation and blockchain-powered escrow.",
     image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+    link: "https://couponmarch-seven.vercel.app/",
   },
   {
     id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
+    status: "complete(live)",
+    title: "Assembly Endgame - Word Guessing Game",
     image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+    link: "https://hari-ramsss.github.io/word_guess-react_game-/",
   },
   {
     id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
+    status: "complete(live)",
+    title: "StillPoint - Interactive Fantasy Adventure Experience",
     image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    link: "https://hari-ramsss.github.io/stillpoint/",
   },
 ];
 
@@ -501,6 +501,7 @@ const WINDOW_CONFIG = {
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  githubfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
 };
 
 export { INITIAL_Z_INDEX, WINDOW_CONFIG };
