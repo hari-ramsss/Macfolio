@@ -1,7 +1,7 @@
 import useWindowStore from "#store/window"
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { Draggable } from "gsap/Draggable";
 function WindowWrapper(Component, windowKey) {
 
@@ -9,6 +9,13 @@ function WindowWrapper(Component, windowKey) {
         const { focusWindow, windows } = useWindowStore();
         const { isOpen, zIndex } = windows[windowKey];
         const ref = useRef(null);
+
+        // Bring window to front whenever it is opened
+        useEffect(() => {
+            if (isOpen) {
+                focusWindow(windowKey);
+            }
+        }, [isOpen])
 
         useGSAP(() => {
             const el = ref.current;
@@ -32,7 +39,7 @@ function WindowWrapper(Component, windowKey) {
             if (!el) return;
             el.style.display = isOpen ? "block" : "none";
         }, [isOpen])
-        return (<section id={windowKey} ref={ref} style={{ zIndex }} className="absolute" onMouseDown={() => focusWindow(windowKey)}>
+        return (<section id={windowKey} ref={ref} style={{ zIndex }} className="absolute" onPointerDown={() => focusWindow(windowKey)}>
             <Component {...props} />
         </section>
         )

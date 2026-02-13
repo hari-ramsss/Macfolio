@@ -195,7 +195,7 @@ function Terminal() {
                     <p>
                         <Check size={20} />5 of 5 loaded successfully (100%)
                     </p>
-                    <p className="text-black">
+                    <p className="text-black dark:text-gray-200">
                         <Flag size={20} fill="black" />
                         Render Time:2.3ms
                     </p>

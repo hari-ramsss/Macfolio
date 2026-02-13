@@ -16,10 +16,9 @@ const Finder = () => {
     const { openWindow } = useWindowStore();
     const { repos, loading, error } = useGithubRepos({ sort: 'updated', perPage: 20 });
 
-    // GitHub browsing state
     const [showGithub, setShowGithub] = useState(false);
-    const [githubPath, setGithubPath] = useState([]);        // breadcrumb: [{name, path}]
-    const [githubContents, setGithubContents] = useState([]); // current dir listing
+    const [githubPath, setGithubPath] = useState([]);        
+    const [githubContents, setGithubContents] = useState([]); 
     const [githubLoading, setGithubLoading] = useState(false);
     const [githubError, setGithubError] = useState(null);
     const [activeRepoName, setActiveRepoName] = useState('');

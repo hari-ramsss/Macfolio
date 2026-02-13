@@ -7,21 +7,40 @@ gsap.registerPlugin(Draggable);
 
 const App = () => {
   return (
-    <main>
-      <Navbar />
-      <Welcome />
-      <Dock />
-      <Home />
-      <TerminalWindow />
-      <SafariWindow />
-      <ResumeWindow />
-      <FinderWindow />
-      <PhotosWindow />
-      <TextWindow />
-      <ImageWindow />
-      <ContactWindow />
-      <GithubFileWindow />
-    </main>
+    <>
+      <video
+        src="/background/background4.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          width: '100vw',
+          height: '100vh',
+          objectFit: 'cover',
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      />
+      <main style={{ position: 'relative', zIndex: 1 }}>
+        <Navbar />
+        <Welcome />
+        <Dock />
+        <Home />
+        <TerminalWindow />
+        <SafariWindow />
+        <ResumeWindow />
+        <FinderWindow />
+        <PhotosWindow />
+        <TextWindow />
+        <ImageWindow />
+        <ContactWindow />
+        <GithubFileWindow />
+      </main>
+    </>
   );
 };
 export default App;
