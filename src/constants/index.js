@@ -188,19 +188,27 @@ const photosLinks = [
 const gallery = [
   {
     id: 1,
-    img: "/images/gal1.png",
+    img: "/images/gallery_pfp.jpeg",
   },
   {
     id: 2,
-    img: "/images/gal2.png",
+    img: "/images/gallery_paris_pfp.png",
   },
   {
     id: 3,
-    img: "/images/gal3.png",
+    img: "/images/gallery_paris_group.jpeg",
   },
   {
     id: 4,
-    img: "/images/gal4.png",
+    img: "/images/gallery_eiffel_tower.jpeg",
+  },
+  {
+    id: 5,
+    img: "/images/gallery_machine_de_lille.jpeg",
+  },
+  {
+    id: 6,
+    img: "/images/gallery_mont_saint_michelle.jpeg",
   },
 ];
 
@@ -372,7 +380,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-5",
-      imageUrl: "/images/adrian.jpg",
+      imageUrl: "/images/gallery_pfp.jpeg",
     },
     {
       id: 2,
@@ -381,31 +389,22 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-28 right-72",
-      imageUrl: "/images/adrian-2.jpg",
+      imageUrl: "/images/pfp_sterlingpic.jpeg",
     },
     {
       id: 3,
-      name: "conference-me.png",
-      icon: "/images/image.png",
-      kind: "file",
-      fileType: "img",
-      position: "top-52 left-80",
-      imageUrl: "/images/adrian-3.jpeg",
-    },
-    {
-      id: 4,
       name: "about-me.txt",
       icon: "/images/txt.png",
       kind: "file",
       fileType: "txt",
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
-      image: "/images/adrian.jpg",
+      image: "/images/gallery_paris_pfp.png",
       description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
+        "Hey! I’m Hari 👋, a developer who loves turning ideas into real, working systems.",
+        "I build web apps with JavaScript, React, and Node.js—focused on performance and clean architecture.",
+        "I enjoy solving problems step by step, whether it’s AI chatbots, backend logic, or system design.",
+        "When I’m not coding, I’m refining UI details or building the next ambitious project I probably overplanned 🚀",
       ],
     },
   ],

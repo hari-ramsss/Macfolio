@@ -1,10 +1,10 @@
 import WindowWrapper from "#hoc/WindowWrapper"
 import { WindowControlls } from "#components"
-import { FileType, Mail, Search } from "lucide-react"
+import { Mail, Search } from "lucide-react"
 import { gallery, photosLinks } from "#constants"
 import useWindowStore from "#store/window"
 const Photos = () => {
-  const {openWindow} = useWindowStore()
+  const { openWindow } = useWindowStore()
   return (
     <>
       <div id="window-header">
@@ -31,8 +31,8 @@ const Photos = () => {
         <div className="gallery">
           <ul>
             {gallery.map(({ id, img }) => (
-              <li key={id} onClick={()=>openWindow("imgfile",{
-                id,name:"Gallery image",icon:"/images/image.png",kind:"file",FileType:"img",imageUrl:img,
+              <li key={id} onClick={() => openWindow("imgfile", {
+                id, name: "Gallery image", icon: "/images/image.png", kind: "file", FileType: "img", imageUrl: img,
               })}>
                 <img src={img} alt={`Gallery ${id}`} />
               </li>

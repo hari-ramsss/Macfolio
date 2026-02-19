@@ -60,7 +60,7 @@ nav *,
   nav {
     @apply flex justify-between items-center bg-white/50 dark:bg-gray-900/80 backdrop-blur-3xl p-2 px-5 select-none;
 
-    div {
+    &>div {
       @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
 
       &:last-child {
@@ -355,9 +355,14 @@ nav *,
 
   #photos {
     @apply w-11/12 md:max-w-3xl absolute top-96 left-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
+    height: 520px;
+
+    &>.flex {
+      height: calc(520px - 52px);
+    }
 
     .sidebar {
-      @apply w-3/12 flex-none bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col p-5;
+      @apply w-3/12 flex-none bg-gray-50 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col p-5 overflow-y-auto;
 
       h2 {
         @apply text-xs font-medium text-gray-400 dark:text-gray-500 mb-1;
@@ -383,30 +388,31 @@ nav *,
     }
 
     .gallery {
-      @apply p-5;
+      @apply flex-1 p-5 overflow-y-auto overflow-x-hidden;
+      height: 100%;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+      }
 
       ul {
-        @apply grid grid-cols-5 grid-rows-5 gap-2.5;
+        columns: 2;
+        column-gap: 12px;
 
         li {
+          @apply mb-3 cursor-pointer;
+          break-inside: avoid;
+
           img {
-            @apply size-full object-cover rounded-lg;
-          }
-
-          &:first-child {
-            @apply row-start-1 row-span-3 col-start-1 col-span-3;
-          }
-
-          &:nth-child(2) {
-            @apply row-start-1 row-span-3 col-start-4 col-span-2;
-          }
-
-          &:nth-child(3) {
-            @apply row-start-4 row-span-2 col-start-3 col-span-3;
-          }
-
-          &:last-child {
-            @apply row-start-4 row-span-2 col-start-1 col-span-2;
+            @apply w-full rounded-lg object-cover hover:opacity-90 transition-opacity;
           }
         }
       }
@@ -463,6 +469,18 @@ nav *,
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       gap: 1.5rem;
       align-content: start;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+      }
 
       li {
         @apply flex items-center flex-col gap-2 p-2 rounded-lg cursor-pointer transition-all hover:bg-gray-100 dark:hover:bg-white/6;
