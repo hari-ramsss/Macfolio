@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { techStack, socials, locations } from "#constants";
-import { Check, Flag } from "lucide-react"; 
+import { Check, Flag } from "lucide-react";
 import { WindowControlls } from "#components";
 import WindowWrapper from "#hoc/WindowWrapper";
 
@@ -203,23 +203,23 @@ function Terminal() {
             </div>
 
             {/* Interactive Terminal Section */}
-            <div className="terminal-interactive" onClick={focusInput}>
-                <div className="terminal-output" ref={outputRef}>
+            <div className="bg-white dark:bg-gray-950 text-gray-800 dark:text-green-300 font-roboto text-sm p-5 cursor-text max-h-[180px] flex flex-col" onClick={focusInput}>
+                <div className="terminal-output flex-1 overflow-y-auto max-h-[120px] space-y-3" ref={outputRef}>
                     {commandHistory.map((entry, idx) => (
-                        <div key={idx} className="terminal-entry">
-                            <p className="terminal-command">
-                                <span className="prompt">@Hari_Ram_%</span> {entry.command}
+                        <div key={idx} className="space-y-1">
+                            <p className="text-black dark:text-green-300">
+                                <span className="text-black dark:text-green-300 font-bold mr-2">@Hari_Ram_%</span> {entry.command}
                             </p>
-                            <div className="terminal-result">
+                            <div className="text-gray-700 dark:text-green-300/80">
                                 {entry.output.map((line, lineIdx) => (
-                                    <p key={lineIdx}>{line}</p>
+                                    <p key={lineIdx} className="leading-relaxed">{line}</p>
                                 ))}
                             </div>
                         </div>
                     ))}
                 </div>
-                <div className="terminal-input-line">
-                    <span className="prompt">@Hari_Ram_%</span>
+                <div className="flex items-center mt-3 pt-3 border-t border-gray-700 dark:border-green-900/50">
+                    <span className="text-black dark:text-green-300 font-bold mr-2">@Hari_Ram_%</span>
                     <input
                         ref={inputRef}
                         type="text"
@@ -229,6 +229,7 @@ function Terminal() {
                         spellCheck={false}
                         autoComplete="off"
                         placeholder="Type 'help' for commands..."
+                        className="bg-transparent border-none text-gray-800 dark:text-green-300 outline-none flex-1 font-roboto placeholder:text-gray-600 dark:placeholder:text-green-800"
                     />
                 </div>
             </div>

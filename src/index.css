@@ -236,76 +236,29 @@ nav *,
       }
     }
 
-    .terminal-interactive {
-      @apply bg-white dark:bg-gray-950 text-gray-800 dark:text-green-300 font-roboto text-sm p-5 cursor-text;
-      max-height: 180px;
-      display: flex;
-      flex-direction: column;
-
-      .terminal-output {
-        @apply flex-1 overflow-y-auto space-y-3;
-        max-height: 120px;
-
-        &::-webkit-scrollbar {
-          width: 6px;
-        }
-
-        &::-webkit-scrollbar-track {
-          background: #cfcfcf;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background: #676767;
-          border-radius: 3px;
-        }
+    .terminal-output {
+      &::-webkit-scrollbar {
+        width: 6px;
       }
 
-      .terminal-entry {
-        @apply space-y-1;
+      &::-webkit-scrollbar-track {
+        background: #cfcfcf;
       }
 
-      .terminal-command {
-        @apply text-black dark:text-green-300;
-      }
-
-      .terminal-result {
-        @apply text-gray-700 dark:text-green-300/80;
-
-        p {
-          @apply leading-relaxed;
-        }
-      }
-
-      .prompt {
-        @apply text-[#0a0a0a] dark:text-green-300 font-bold mr-2;
-      }
-
-      .terminal-input-line {
-        @apply flex items-center mt-3 pt-3 border-t border-gray-700 dark:border-green-900/50;
-
-        input {
-          @apply bg-transparent border-none text-gray-800 dark:text-green-300 outline-none flex-1 font-roboto;
-          caret-color: #1f1f1f;
-
-          &::placeholder {
-            @apply text-gray-600 dark:text-green-800;
-          }
-        }
-      }
-
-      @keyframes blink {
-
-        0%,
-        50% {
-          opacity: 1;
-        }
-
-        51%,
-        100% {
-          opacity: 0;
-        }
+      &::-webkit-scrollbar-thumb {
+        background: #676767;
+        border-radius: 3px;
       }
     }
+  }
+
+  :where(.dark, .dark *) #terminal .terminal-output::-webkit-scrollbar-track {
+    background: #1a1a2e;
+  }
+
+  :where(.dark, .dark *) #terminal .terminal-output::-webkit-scrollbar-thumb {
+    background: #4ade80;
+    border-radius: 3px;
   }
 
 
