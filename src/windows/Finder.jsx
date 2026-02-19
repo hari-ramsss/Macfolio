@@ -201,7 +201,6 @@ const Finder = () => {
                             ))
                         )
                     ) : (
-                        // Regular location view
                         activeLocation?.children?.map((item) => (
                             <li
                                 key={item.id}

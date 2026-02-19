@@ -66,8 +66,6 @@ function Welcome() {
       subtitleCleanup();
     }
   }, []);
-
-
   return (
     <section id="welcome">
       <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/15 px-6 py-3 w-fit transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
