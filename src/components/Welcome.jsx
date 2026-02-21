@@ -68,16 +68,16 @@ function Welcome() {
   }, []);
   return (
     <section id="welcome">
-      <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/15 px-6 py-3 w-fit transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)]">
+      <div className="bg-white/10 backdrop-blur-xl rounded-2xl border border-white/15 px-6 py-3 w-fit transition-all duration-300 shadow-[0_4px_30px_rgba(0,0,0,0.1)] max-sm:backdrop-blur-sm">
         <p ref={subtitleRef}>
-          {renderText("Hey, I'm ", 'text-3xl font-georama text-gray-300', 200)}
-          {renderText("Hari Ram", 'text-3xl font-georama text-white font-bold', 200)}
-          {renderText("! Welcome to my", 'text-3xl font-georama text-gray-300', 200)}
+          {renderText("Hey, I'm ", 'text-3xl max-sm:text-2xl font-georama text-gray-300 max-sm:visible', 200)}
+          {renderText("Hari Ram", 'text-3xl max-sm:text-2xl font-georama text-white font-bold  max-sm:visible', 200)}
+          {renderText("! Welcome to my", 'text-3xl max-sm:text-2xl font-georama text-gray-300 max-sm:visible', 200)}
         </p>
       </div>
-      <h1 ref={titleRef} className="mt-7">{renderText("Portfolio", 'text-9xl italic font-georama')}</h1>
+      <h1 ref={titleRef} className="mt-7">{renderText("Portfolio", 'text-9xl max-sm:text-7xl italic font-georama')}</h1>
 
-      <div className="small-screen">
+      <div className="small-screen max-sm:hidden">
         <p>This portfolio is designed for desktop/tablet screens only.</p>
       </div>
     </section>

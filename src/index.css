@@ -10,7 +10,11 @@ body {
   overflow: hidden;
   height: 100dvh;
 }
-
+@media (max-width: 639px) {
+  html, body {
+    background: transparent;
+  }
+}
 nav,
 nav *,
 #window-header,
@@ -54,11 +58,11 @@ nav *,
 
 @layer base {
   main {
-    @apply w-dvw h-dvh overflow-hidden;
+    @apply w-dvw h-dvh overflow-hidden max-sm:bg-transparent max-sm:backdrop-blur-none;
   }
 
   nav {
-    @apply flex justify-between items-center bg-white/50 dark:bg-gray-900/80 backdrop-blur-3xl p-2 px-5 select-none;
+    @apply flex justify-between items-center bg-white/50 dark:bg-gray-900/80 backdrop-blur-3xl p-2 px-5 select-none max-sm:bg-transparent! max-sm:backdrop-blur-none!;
 
     &>div {
       @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
@@ -92,7 +96,7 @@ nav *,
   }
 
   #welcome {
-    @apply text-gray-400 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
+    @apply text-gray-400 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10 max-sm:text-white;
 
     .small-screen {
       @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
@@ -104,7 +108,7 @@ nav *,
   }
 
   #dock {
-    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
 
     .dock-container {
       @apply bg-white/20 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
@@ -115,7 +119,7 @@ nav *,
     }
 
     .dock-icon {
-      @apply size-14 3xl:size-20 cursor-pointer;
+      @apply size-14 3xl:size-20 cursor-pointer max-sm:size-25;
 
       img {
         @apply object-cover object-center;
@@ -538,20 +542,25 @@ nav *,
   }
 
   #home {
-    @apply relative z-0 max-sm:hidden;
+  @apply relative z-0;
 
-    ul {
-      li {
-        @apply absolute z-0 select-none flex items-center flex-col;
+  ul {
+    @apply max-sm:flex max-sm:gap-4 max-sm:flex-row;
 
-        img {
-          @apply group-hover:bg-gray-950/10 p-1 rounded-md;
-        }
+    li {
+      @apply absolute z-0 select-none flex items-center flex-col;
+      @apply max-sm:static max-sm:w-20;
 
-        p {
-          @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
-        }
+      img {
+        @apply group-hover:bg-gray-950/10 p-1 rounded-md;
+        @apply max-sm:w-16 max-sm:h-16 max-sm:rounded-2xl max-sm:p-0;
+      }
+
+      p {
+        @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
+        @apply max-sm:text-xs;
       }
     }
   }
+}
 }

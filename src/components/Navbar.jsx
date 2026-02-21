@@ -5,7 +5,7 @@ import useWindowStore from "#store/window";
 import useThemeStore from "#store/theme";
 import { useState, useRef, useEffect } from "react";
 import { Sun, Moon, Monitor, Check, MapPin, Mail, ExternalLink } from "lucide-react";
-
+import { Wifi,BatteryFull } from "lucide-react";
 const themeOptions = [
     { key: "light", label: "Light", icon: Sun },
     { key: "dark", label: "Dark", icon: Moon },
@@ -43,7 +43,7 @@ const Navbar = () => {
 
     return (
         <nav>
-            <div>
+            <div className="max-sm:hidden">
                 <img src="/images/logo.svg" alt="logo" />
                 <p className="font-bold dark:text-gray-200">Hari Ram's Portfolio</p>
 
@@ -55,7 +55,23 @@ const Navbar = () => {
                     })}
                 </ul>
             </div>
-            <div>
+            {/* Mobile iOS Status Bar - only visible on small screens */}
+<div className="sm:hidden flex justify-between items-center w-full px-5 py-2">
+  {/* Left: Time */}
+  <time className="text-sm font-semibold text-white">
+    {dayjs().format("h:mm A")}
+  </time>
+  
+  {/* Center: Dynamic Island (black pill) */}
+  <div className="w-48 h-7 bg-black rounded-full" />
+  
+  {/* Right: WiFi + Battery icons */}
+  <div className="flex items-center gap-1.5">
+    <Wifi className="w-4 h-4 text-white" />
+    <BatteryFull className="w-5 h-5 text-white" />  {/* or use Battery from lucide-react */}
+  </div>
+</div>
+            <div className="max-sm:hidden">
                 <ul>
                     {navIcons.map((item) => {
                         if (item.id === 3) {
